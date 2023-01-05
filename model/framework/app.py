@@ -67,6 +67,11 @@ def predict():
     # checking for input - models
     # path = 'models/rlm/gcnn_model.pt'
     # models = torch.load(path)
+    
+    
+    # checking for input - models
+    # path = 'models/rlm/gcnn_model.pt'
+    # models = torch.load(path)
 
 ########################################################################
 
