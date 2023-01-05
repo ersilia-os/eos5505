@@ -1,17 +1,16 @@
-# app file to be incorporated into main.py
+# app file is still being edited. to be incorporated into main.py
 import rdkit
 from rdkit import Chem, DataStructs
-from rdkit.Chem.Draw import rdMolDraw2D
 from rdkit.Chem.Draw import IPythonConsole
 from rdkit.Chem import AllChem
 from rdkit.Chem import Draw
-from rdkit.Chem.Draw import rdMolDraw2D
 from rdkit.Chem import rdDepictor
 rdDepictor.SetPreferCoordGen(True)
 from rdkit.Chem import rdMolDescriptors
 
 import numpy as np
 import pandas as pd
+import sys
 import sys
 import csv
 import os
@@ -21,9 +20,9 @@ import torch
 import requests
 from werkzeug.utils import secure_filename
 
+sys.path.insert(0, './framework')
 from predictors.rlm.rlm_predictor import RLMPredictior
-from predictors.utilities.utilities import addMolsKekuleSmilesToFrame
-from predictors.utilities.utilities import get_similar_mols
+from predictors.utilities.utilities import addMolsKekuleSmilesToFrame, get_similar_mols
 
 
 # parse arguments
@@ -45,37 +44,6 @@ def predict():
     model_error = False
     mol_error = False
     
-########################################################################
-    # # checking for input - smiles
-    # input_file = 'kekule_smiles.csv'
-    # dataset = pd.read_csv(input_file)
-    # df = pd.DataFrame(dataset)
-    # smiles_list = df[df['kekule_smiles'].notna()]
-    # smiles_list = smiles_list['kekule_smiles'].tolist()
-    # print(smiles_list)
-    # print(df)
-    
-    # # checking for input - smiles
-    # input_file = 'kekule_smiles.csv'
-    # dataset = pd.read_csv(input_file)
-    # df = pd.DataFrame(dataset)   
-        
-    # smiles_list = df[df['kekule_smiles'].notna()]
-    # smiles_list = smiles_list['kekule_smiles'].tolist()
-    # print(smiles_list)
-    # smiles_list = [string for string in smiles_list if string != '']
-    # print(smiles_list)
-    # smiles_list = [urllib.parse.unquote(string, encoding='utf-8', errors='replace') for string in smiles_list] # additional decoding step to transform any %2B to + symbols
-    # print(smiles_list)
-    
-    # if not smiles_list or smiles_list == None:
-    #     mol_error = True
-
-    # checking for input - models
-    # path = 'models/rlm/gcnn_model.pt'
-
-########################################################################
-
     # checking for input - smiles
     input_file = 'kekule_smiles.csv'
     df = pd.read_csv(input_file)
@@ -153,20 +121,23 @@ def upload_file():
     #     response['errorMessages'] = 'A file needs to be attached to the request.'
     #     return json.dumps(response)
 
-    # file = requests.files['file']
-    file = 'kekule_smiles.csv'
+    input_file = 'kekule_smiles.csv'
+    with open(input_file, "r") as f:
+        reader = csv.reader(f)
+        next(reader) # skip header
+        smiles_list = [r[0] for r in reader]
     
 
     # check if the file has a name, else throw error message
-    if file.filename == '':
+    if input_file.filename == '':
         response['hasErrors'] = True
         response['errorMessages'] = 'A file with a file name needs to be attached to the request.'
         return response
 
     # check if the file extension is in the allowed list of file extensions (CSV, TXT or SMI)
-    if file and allowed_file(file.filename):
+    if input_file and allowed_file(input_file.filename):
 
-        filename = secure_filename(file.filename)
+        filename = secure_filename(input_file.filename)
         data = dict(requests.form)
         print(data)
         indexIdentifierColumn = int(data['indexIdentifierColumn'])
@@ -179,10 +150,10 @@ def upload_file():
             response['errorMessages'] = 'Please choose at least one model.'
             return json.dumps(response)
 
-        if data['hasHeaderRow'] == 'true': # file has a header row
-            df = pd.read_csv(file, header=0, sep=data['columnSeparator'])
+        if data['hasHeaderRow'] == 'true': # input_file has a header row
+            df = pd.read_csv(input_file, header=0, sep=data['columnSeparator'])
         else: # file does not have a header row
-            df = pd.read_csv(file, header=None, sep=data['columnSeparator'])
+            df = pd.read_csv(input_file, header=None, sep=data['columnSeparator'])
             column_name_mapper = {}
             for column_name in df.columns.values:
                 if int(column_name) == indexIdentifierColumn:

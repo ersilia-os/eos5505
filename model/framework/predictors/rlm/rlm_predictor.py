@@ -10,9 +10,9 @@ from rdkit import Chem
 import warnings
 warnings.filterwarnings('ignore')
 import sys
-sys.path.insert(0, '../chemprop')
-from chemprop.data.utils import get_data, get_data_from_smiles
-from chemprop.data import MoleculeDataLoader, MoleculeDataset
+# sys.path.insert(0, '../chemprop')
+# from chemprop.data.utils import get_data, get_data_from_smiles
+# from chemprop.data import MoleculeDataLoader, MoleculeDataset
 from chemprop.train import predict
 from rdkit.Chem import PandasTools
 import random
