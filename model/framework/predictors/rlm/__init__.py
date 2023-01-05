@@ -16,11 +16,12 @@ from os import path
 from urllib.request import url2pathname
 from urllib.parse import urlparse
 
-p = urlparse(r'C:\Users\DELL-PC\Desktop\eos\testrlm\server\models\rlm')
+# p = urlparse(r'C:\Users\DELL-PC\Desktop\eos\testrlm\server\models\rlm')
+p = urlparse(r'model\checkpoints\gcnn_model.pt')
 base_url = url2pathname(p.path)
 print(base_url)
 # base_url = 'models/rlm'
-rlm_base_models_path = './models/rlm'
+rlm_base_models_path = './model/checkpoints'
 
 # def load_rlm_rf_model():
 

@@ -1,3 +1,4 @@
+# app file to be incorporated into main.py
 import rdkit
 from rdkit import Chem, DataStructs
 from rdkit.Chem.Draw import rdMolDraw2D
@@ -79,7 +80,7 @@ def predict():
     if not smiles_list or smiles_list == None:
         mol_error = True
 
-    model = 'models/rlm/gcnn_model.pt'
+    model = 'models/checkpoints/gcnn_model.pt'
 
     models = model
     print(models)
