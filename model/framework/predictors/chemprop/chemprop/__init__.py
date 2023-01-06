@@ -5,7 +5,7 @@ import chemprop.chemprop.data
 import chemprop.chemprop.features
 import chemprop.chemprop.models
 import chemprop.chemprop.train
-import chemprop.web
+import chemprop.chemprop.web
 
 import chemprop.chemprop.args
 import chemprop.chemprop.hyperparameter_optimization
