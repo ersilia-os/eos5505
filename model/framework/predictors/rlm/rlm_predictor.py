@@ -20,9 +20,10 @@ import string
 from rdkit.Chem.rdchem import Mol
 from numpy import array
 from typing import Tuple
-from ..utilities.utilities import get_processed_smi
+# sys.path.insert(0, 'C:/Users/DELL-PC/Desktop/eos/eos5505/model/framework/predictors')
+from utilities.utilities import get_processed_smi
 from . import rlm_gcnn_scaler, rlm_gcnn_model, rlm_gcnn_model_version
-from ..base.gcnn import GcnnBase
+from base.gcnn import GcnnBase
 import time
 
 class RLMPredictior(GcnnBase):

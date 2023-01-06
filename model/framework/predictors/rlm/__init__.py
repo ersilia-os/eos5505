@@ -2,8 +2,9 @@ import pickle
 # from keras.models import load_model
 # from keras_self_attention import SeqSelfAttention
 import sys
-sys.path.insert(0, './predictors/chemprop')
-from chemprop.utils import load_checkpoint, load_scalers
+# sys.path.insert(0, './predictors/chemprop')
+sys.path.insert(0, './model/framework/predictors')
+from chemprop.chemprop.utils import load_checkpoint, load_scalers
 import requests
 from io import BytesIO
 import tempfile

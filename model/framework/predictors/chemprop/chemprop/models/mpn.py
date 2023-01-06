@@ -5,9 +5,9 @@ from rdkit import Chem
 import torch
 import torch.nn as nn
 
-from chemprop.args import TrainArgs
-from chemprop.features import BatchMolGraph, get_atom_fdim, get_bond_fdim, mol2graph
-from chemprop.nn_utils import index_select_ND, get_activation_function
+from chemprop.chemprop.args import TrainArgs
+from chemprop.chemprop.features import BatchMolGraph, get_atom_fdim, get_bond_fdim, mol2graph
+from chemprop.chemprop.nn_utils import index_select_ND, get_activation_function
 
 
 class MPNEncoder(nn.Module):

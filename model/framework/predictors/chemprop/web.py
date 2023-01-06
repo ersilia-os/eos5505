@@ -1,6 +1,7 @@
 """Runs the web version of chemprop locally."""
 
-from chemprop.web import chemprop_web
+# from chemprop.web import chemprop_web
+from .web import chemprop_web
 
 
 if __name__ == '__main__':

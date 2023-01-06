@@ -20,7 +20,7 @@ import torch
 import requests
 from werkzeug.utils import secure_filename
 
-sys.path.insert(0, './framework')
+sys.path.insert(0, './model/framework')
 from predictors.rlm.rlm_predictor import RLMPredictior
 from predictors.utilities.utilities import addMolsKekuleSmilesToFrame, get_similar_mols
 

@@ -8,7 +8,7 @@ from typing_extensions import Literal
 import torch
 from tap import Tap  # pip install typed-argument-parser (https://github.com/swansonk14/typed-argument-parser)
 
-from chemprop.features import get_available_features_generators
+from chemprop.chemprop.features import get_available_features_generators
 
 
 def get_checkpoint_paths(checkpoint_path: Optional[str] = None,
