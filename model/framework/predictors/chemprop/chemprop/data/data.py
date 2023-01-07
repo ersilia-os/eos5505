@@ -8,11 +8,8 @@ from torch.utils.data import DataLoader, Dataset, Sampler
 from rdkit import Chem
 
 from .scaler import StandardScaler
-
-import sys
-# sys.path.insert(0, './model/framework/predictors')
-from chemprop.chemprop.features import get_features_generator, BatchMolGraph, MolGraph
-# from chemprop.features import BatchMolGraph, MolGraph
+from chemprop.features import get_features_generator
+from chemprop.features import BatchMolGraph, MolGraph
 
 
 # Cache of graph featurizations

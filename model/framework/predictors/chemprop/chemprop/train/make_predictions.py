@@ -5,10 +5,10 @@ import numpy as np
 from tqdm import tqdm
 
 from .predict import predict
-from chemprop.chemprop.args import PredictArgs, TrainArgs
-from chemprop.chemprop.data import MoleculeDataLoader, MoleculeDataset
-from chemprop.chemprop.data.utils import get_data, get_data_from_smiles
-from chemprop.chemprop.utils import load_args, load_checkpoint, load_scalers, makedirs
+from chemprop.args import PredictArgs, TrainArgs
+from chemprop.data import MoleculeDataLoader, MoleculeDataset
+from chemprop.data.utils import get_data, get_data_from_smiles
+from chemprop.utils import load_args, load_checkpoint, load_scalers, makedirs
 
 
 def make_predictions(args: PredictArgs, smiles: List[str] = None) -> List[Optional[List[float]]]:

@@ -6,9 +6,9 @@ from typing import Tuple
 import numpy as np
 
 from .run_training import run_training
-from chemprop.chemprop.args import TrainArgs
-from chemprop.chemprop.data.utils import get_task_names
-from chemprop.chemprop.utils import create_logger, makedirs
+from chemprop.args import TrainArgs
+from chemprop.data.utils import get_task_names
+from chemprop.utils import create_logger, makedirs
 
 
 def cross_validate(args: TrainArgs, logger: Logger = None) -> Tuple[float, float]:

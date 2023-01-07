@@ -10,9 +10,9 @@ from rdkit import Chem
 import warnings
 warnings.filterwarnings('ignore')
 import sys
-# sys.path.insert(0, '../chemprop')
-# from chemprop.data.utils import get_data, get_data_from_smiles
-# from chemprop.data import MoleculeDataLoader, MoleculeDataset
+sys.path.insert(0, '../chemprop')
+from chemprop.data.utils import get_data, get_data_from_smiles
+from chemprop.data import MoleculeDataLoader, MoleculeDataset
 from chemprop.train import predict
 from rdkit.Chem import PandasTools
 import random
@@ -20,10 +20,9 @@ import string
 from rdkit.Chem.rdchem import Mol
 from numpy import array
 from typing import Tuple
-# sys.path.insert(0, 'C:/Users/DELL-PC/Desktop/eos/eos5505/model/framework/predictors')
-from utilities.utilities import get_processed_smi
+from ..utilities.utilities import get_processed_smi
 from . import rlm_gcnn_scaler, rlm_gcnn_model, rlm_gcnn_model_version
-from base.gcnn import GcnnBase
+from ..base.gcnn import GcnnBase
 import time
 
 class RLMPredictior(GcnnBase):

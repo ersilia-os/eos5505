@@ -2,10 +2,19 @@ from setuptools import setup, find_namespace_packages
 
 
 setup(
-    name='predictors',
+    name='ncats-adme-predictors',
     version='1',
+    author='Jorge Neyra, Vishal Babu Siramshetty, Sankalp Jain',
+    author_email='jorge.neyra@nih.gov, vishalbabu.siramshetty@nih.gov, sankalp.jain@nih.gov',
+    # packages=find_namespace_packages(include=[
+    #     'rlm.*',
+    #     'cyp450.*'
+    #     'features.*'
+    #     'utilities.*'
+    # ]),
     packages=find_namespace_packages(include=[
         'rlm.*',
+        # 'cyp450.*'
         'features.*'
         'utilities.*'
     ]),

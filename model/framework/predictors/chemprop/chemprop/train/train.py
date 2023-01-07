@@ -8,9 +8,9 @@ from torch.optim import Optimizer
 from torch.optim.lr_scheduler import _LRScheduler
 from tqdm import tqdm
 
-from chemprop.chemprop.args import TrainArgs
-from chemprop.chemprop.data import MoleculeDataLoader, MoleculeDataset
-from chemprop.chemprop.nn_utils import compute_gnorm, compute_pnorm, NoamLR
+from chemprop.args import TrainArgs
+from chemprop.data import MoleculeDataLoader, MoleculeDataset
+from chemprop.nn_utils import compute_gnorm, compute_pnorm, NoamLR
 
 
 def train(model: nn.Module,

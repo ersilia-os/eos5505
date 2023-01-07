@@ -12,8 +12,8 @@ from tqdm import tqdm
 
 from .data import MoleculeDatapoint, MoleculeDataset
 from .scaffold import log_scaffold_stats, scaffold_split
-from chemprop.chemprop.args import PredictArgs, TrainArgs
-from chemprop.chemprop.features import load_features
+from chemprop.args import PredictArgs, TrainArgs
+from chemprop.features import load_features
 
 
 def get_task_names(path: str,

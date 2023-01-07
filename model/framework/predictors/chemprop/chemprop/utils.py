@@ -13,12 +13,10 @@ import torch.nn as nn
 from torch.optim import Adam, Optimizer
 from torch.optim.lr_scheduler import _LRScheduler
 
-# import sys
-# sys.path.insert(0, './model/framework/predictors/chemprop')
-from chemprop.chemprop.args import TrainArgs
-from chemprop.chemprop.data import StandardScaler, MoleculeDataset
-from chemprop.chemprop.models import MoleculeModel
-from chemprop.chemprop.nn_utils import NoamLR
+from chemprop.args import TrainArgs
+from chemprop.data import StandardScaler, MoleculeDataset
+from chemprop.models import MoleculeModel
+from chemprop.nn_utils import NoamLR
 
 
 def makedirs(path: str, isfile: bool = False):
