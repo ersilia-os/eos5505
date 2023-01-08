@@ -1,10 +1,5 @@
-import rdkit
-from rdkit import Chem, DataStructs
-from rdkit.Chem.Draw import rdMolDraw2D
-from rdkit.Chem.Draw import IPythonConsole
-from rdkit.Chem import AllChem
-from rdkit.Chem import Draw
-from rdkit.Chem.Draw import rdMolDraw2D
+from rdkit import Chem
+from rdkit.Chem.Descriptors import MolWt
 from rdkit.Chem import rdDepictor
 rdDepictor.SetPreferCoordGen(True)
 
@@ -12,17 +7,18 @@ import numpy as np
 import pandas as pd
 import sys
 import os
-import urllib
-import os
+import csv
 import torch 
-import requests
 from werkzeug.utils import secure_filename
+import joblib
+
 
 # sys.path.insert(0, 'C:/Users/DELL-PC/Desktop/eos/eos5505/model/framework')
 sys.path.insert(0, './model/framework')
 from predictors.rlm.rlm_predictor import RLMPredictior
 from predictors.utilities.utilities import addMolsKekuleSmilesToFrame
 from predictors.utilities.utilities import get_similar_mols
+
 
 global root_route_path
 root_route_path = os.getenv('ROOT_ROUTE_PATH', '')
@@ -33,27 +29,42 @@ data_path = os.getenv('DATA_PATH', '')
 if data_path != '' and not os.path.isfile(f'{data_path}predictions.csv'):
     pd.DataFrame(columns=['SMILES', 'model', 'prediction', 'timestamp']).to_csv(f'{data_path}predictions.csv', index=False)
 
+# current file directory
+root = os.path.dirname(os.path.abspath(__file__))
+
+# checkpoints directory
+checkpoints_dir = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
+
+input_file = 'model/framework/kekule_smiles.csv'
+
+# read checkpoints (here, simply an integer number: 42)
+ckpt = joblib.load(os.path.join(checkpoints_dir, "checkpoints.joblib"))
+
+# model to be run (here, calculate the Molecular Weight and add ckpt (42) to it)
+def my_model(smiles_list, ckpt):
+    return [MolWt(Chem.MolFromSmiles(smi))+ckpt for smi in smiles_list]
+
 
 def predict():
     response = {}
     model_error = False
     mol_error = False
 
-
     # checking for input - smiles
-    input = 'model/framework/kekule_smiles.csv'
-    # with open(input,'r') as smiles:
+    # with open(input_file,'r') as smiles:
     #     # smiles = smiles['smiles']
     #     smiles_list = [smile for smile in smiles if smile != '']
     
-    smiles = (pd.read_csv(input))
-    smiles = smiles['kekule_smiles'].tolist()
-    smiles_list = [smile for smile in smiles if smile != '']
+    # smiles = (pd.read_csv(input_file))
+    # smiles = smiles['kekule_smiles'].tolist()
+    # smiles_list = [smile for smile in smiles if smile != '']
 
-    smi_column_name = 'smiles'
-    df = pd.DataFrame([smiles_list], columns=[smi_column_name])
-    # print(smiles)
-    print(df)
+    with open(input_file, "r") as f:
+        reader = csv.reader(f)
+        next(reader) # skip header
+        smiles_list = [r[1] for r in reader]
+    print(smiles_list)
+    
     
     if not smiles_list or smiles_list == None:
         mol_error = True
@@ -79,8 +90,6 @@ def predict():
         response['errorMessages'] = 'Please choose at least one model.'
         return response
 
-    # smi_column_name = 'kekule_smiles'
-    # df = pd.DataFrame([smi_column_name],[smiles_list])
     smi_column_name = 'smiles'
     df = pd.DataFrame([smiles_list], columns=[smi_column_name])
     # print(df)
@@ -187,29 +196,11 @@ def allowed_file(filename):
 #         return response
 
 
-# def get_image(smiles):
-#         try:
-#             mol = Chem.MolFromSmiles(smiles)
-#             d2d = rdMolDraw2D.MolDraw2DSVG(350,300)
-#             d2d.DrawMolecule(mol)
-#             d2d.FinishDrawing()
-#             return (d2d.GetDrawingText(), 'image/svg+xml')
-#         except Exception as e:
-#             with open('images/no_image_available.png', "rb") as image_file:
-#                 img_file = image_file.read()
-#             return (img_file, 'image/png')
-        
-# x = get_image(['C1=CC=CC=C1'])
-# print(x)
-
-def predict_df(df, smi_column_name, models):
-
-    # print(df)
-    # print(smi_column_name)
-    
+def predict_df(df, smi_column_name, models):   
     response = {}
     working_df = df.copy()
-    # print(working_df)
+    
+    
     addMolsKekuleSmilesToFrame(working_df, smi_column_name)
     working_df = working_df[~working_df['mols'].isnull() & ~working_df['kekule_smiles'].isnull()]
     if len(working_df.index) == 0:
@@ -290,9 +281,17 @@ def predict_df(df, smi_column_name, models):
         
         if model.lower() in ['rlm']:
             response[model]['model_version'] = predictor.get_model_version()
-
+        return response
     return response
 
+# outputs = my_model(smiles_list, ckpt)
 
+# # write output in a .csv file
+# with open(output_file, "w") as f:
+#     writer = csv.writer(f)
+#     writer.writerow(["value"]) # header
+#     for o in outputs:
+#         writer.writerow([o])
+        
 x = predict()
 print(x)
