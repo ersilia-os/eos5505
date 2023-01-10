@@ -23,8 +23,6 @@ def predict_df(smiles_list, smi_column_name='smiles', models=['rlm']):
     addMolsKekuleSmilesToFrame(working_df, smi_column_name)
     working_df = working_df[~working_df['mols'].isnull() & ~working_df['kekule_smiles'].isnull()]
 
-    base_models_error_message = 'We were not able to make predictions using the following model(s): '
-
     for model in models:
         response[model] = {}
         error_messages = []
