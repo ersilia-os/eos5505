@@ -1,0 +1,51 @@
+Original NCATS ADME codes are in the app.py file
+Edits are in the appb.py and appb2.py files
+
+
+payload from the upload_file function
+form data = {
+    'lineBreak': None,
+    'columnSeparator': None,
+    'hasHeaderRow': True,
+    'indexIdentifierColumn': 1,
+    'model': 'RLM',
+    'file': (binary)
+}
+
+response = {
+    "RLM":{
+        "columns":[
+            "Unnamed: 0",
+            "kekule_smiles",
+            "Predicted Class (Probability)",
+            "Prediction"],
+            "data":[
+                {
+                    "Predicted Class (Probability)":"1 (0.88)",
+                    "Prediction":"unstable",
+                    "Unnamed: 0":0,
+                    "kekule_smiles":"C1=CC=CC=C1"
+                        }
+                    ],
+                    "errorMessages":[],
+                    "hasErrors":false,
+                    "mainColumnsDict":{
+                        "Predicted Class (Probability)":{
+                            "description":"graph convolutional neural network prediction",
+                            "isSmilesColumn":false,
+                            "order":1
+                            },
+                        "Prediction":{
+                            "description":"class label",
+                            "isSmilesColumn":false,
+                            "order":2
+                            },
+                            "kekule_smiles":{
+                                "description":"SMILES",
+                                "isSmilesColumn":true,
+                                "order":0
+                                }
+                            },
+                            "model_version":"rlm_2022-12-26"
+                            }
+                        }
