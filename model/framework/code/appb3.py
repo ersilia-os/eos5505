@@ -55,3 +55,8 @@ def predict_df(df, smi_column_name='smiles', models=['rlm']):
         response_df = pd.merge(df, df_res, left_index=True, right_index=True, how='inner')
 
         return response_df
+    
+    
+df = pd.DataFrame({"smiles": ["C1=CC=CC=C1", "C1=CC=CC=C1", "C1=CC=CC=C1"]})
+dr = predict_df(df)
+print(dr)
