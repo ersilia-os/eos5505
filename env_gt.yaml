@@ -1,0 +1,26 @@
+name: eos5505
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+  - pytorch
+  - rdkit
+dependencies:
+  - ipython=7.16.1
+  - protobuf = 3.19.5
+  - numpy=1.18
+  - pandas=1.1.3
+  - pip=20.0
+  - python=3.7
+  - rdkit=2020.03
+  - scikit-learn=0.22
+  - tqdm=4.48.0
+  - networkx=2.4
+  - torchvision=0.7.0
+  - tensorboardX=2.1
+  - typing-extensions=3.7.4.2
+  - pip:
+    - keras-self-attention==0.41.0
+    - typed-argument-parser==1.5.4
+    - torch==1.6.0+cpu
+    - requests

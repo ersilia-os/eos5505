@@ -6,7 +6,7 @@ import pandas as pd
 from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem
 
-sys.path.insert(0, './model/framework')
+sys.path.append('..')
 
 from predictors.rlm.rlm_predictor import RLMPredictior
 from predictors.utilities.utilities import addMolsKekuleSmilesToFrame

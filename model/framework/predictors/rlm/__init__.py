@@ -1,6 +1,12 @@
 import pickle
 import sys
-sys.path.insert(0, 'model/framework/predictors/chemprop')
+import os
+
+root = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(root, '../chemprop'))
+print(root)
+print(sys.path)
+
 from chemprop.utils import load_checkpoint, load_scalers
 
 import requests
