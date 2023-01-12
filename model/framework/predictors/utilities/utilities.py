@@ -1,21 +1,22 @@
 from numpy import array
-from rdkit import Chem
 from pandas import DataFrame
-from rdkit.Chem.rdchem import Mol
-from FPSim2 import FPSim2Engine
-import sys
-sys.path.insert(0, './predictors/chemprop')
-from chemprop.utils import load_checkpoint, load_scalers
-from os import path
 import requests
 from tqdm import tqdm
 import os
 import os.path as path
-from chemprop.args import InterpretArgs
-from chemprop.interpret import interpret
 import tempfile
 import time
 from datetime import datetime
+from rdkit import Chem
+from rdkit.Chem.rdchem import Mol
+
+import sys
+sys.path.insert(0, './predictors/chemprop')
+from chemprop.utils import load_checkpoint, load_scalers
+from chemprop.args import InterpretArgs
+from chemprop.interpret import interpret
+
+
 
 def get_processed_smi(rdkit_mols: array) -> array:
     """
