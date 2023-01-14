@@ -12,7 +12,7 @@ Hepatic metabolic stability is a key parameter in drug discovery because it can 
 
 - Input: SMILES
 - Output: SMILES
-- Model type: Classification
+<!-- - Model type: Classification -->
 <!-- - Training set: (number of compounds and link to the training data)
 - Mode of training: (is it pretrained? that is were the checkpoints downloaded and used to train the model? or is it retrained? that is trained from scratch with an updated data) -->
 #
