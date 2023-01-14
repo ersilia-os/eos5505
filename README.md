@@ -33,7 +33,7 @@ GPL v3 license.
 - Modifications to the original code.
     1. Removal of Flask functionalities and dependencies.
     2. Striping unused functions from the original code.
-    3. Refactoring the original code for incorporation into the Ersilia Model Hub.
+    3. Refactoring the original code to facilitate incorporation into the Ersilia Model Hub.
 
 -   Steps to run the model on Ersilia CLI
     1. Install the [Ersilia Model Hub](https://ersilia.gitbook.io/ersilia-book/ersilia-model-hub/installation)
