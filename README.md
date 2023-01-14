@@ -3,7 +3,7 @@
 ## Model identifiers
 - Slug: rlm_stability
 - Ersilia ID: eos5505
-- Tags: solubility
+- Tags: rlm
 #
 ## Model description
 <p align="justify">
