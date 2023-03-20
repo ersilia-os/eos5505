@@ -2,14 +2,9 @@
 import os
 import csv
 import sys
-
-import numpy as np
 import pandas as pd
-from rdkit import Chem, DataStructs
-from rdkit.Chem import AllChem
 
 root = os.path.dirname(os.path.abspath(__file__))
-print(root)
 sys.path.append(os.path.join(root, ".."))
 
 from predictors.rlm.rlm_predictor import RLMPredictior
@@ -47,7 +42,6 @@ def predict_df(smiles_list, smi_column_name='smiles', models=['rlm']):
         df_res = pred_df[diff_cols]
         print(df_res)
 
-        #response_df = pd.merge(df, pred_df, how='inner', left_on=smi_column_name, right_on=smi_column_name)
         # making sure the response df is of the exact same length (rows) as original df
         response_df = pd.merge(df, df_res, left_index=True, right_index=True, how='inner')
 

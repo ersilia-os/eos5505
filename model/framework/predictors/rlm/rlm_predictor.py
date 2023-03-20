@@ -1,25 +1,20 @@
 import numpy as np
 import pandas as pd
-from pandas import DataFrame
-
-from rdkit import Chem
+import time
+import os
+import sys
 import warnings
 warnings.filterwarnings('ignore')
-import sys
-sys.path.insert(0, '../chemprop')
-from chemprop.data.utils import get_data, get_data_from_smiles
-from chemprop.data import MoleculeDataLoader, MoleculeDataset
-from chemprop.train import predict
-from rdkit.Chem import PandasTools
-import random
-import string
-from rdkit.Chem.rdchem import Mol
+
+from pandas import DataFrame
 from numpy import array
-from typing import Tuple
-from ..utilities.utilities import get_processed_smi
-from . import rlm_gcnn_scaler, rlm_gcnn_model, rlm_gcnn_model_version
-from ..base.gcnn import GcnnBase
-import time
+
+root = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(root, "../predictors"))
+
+from rlm import rlm_gcnn_scaler, rlm_gcnn_model, rlm_gcnn_model_version
+from base.gcnn import GcnnBase
+
 
 class RLMPredictior(GcnnBase):
     """
@@ -39,7 +34,13 @@ class RLMPredictior(GcnnBase):
             kekule_smiles (Array): numpy array of RDKit molecules
         """
 
-        GcnnBase.__init__(self, kekule_smiles, column_dict_key='Predicted Class (Probability)', columns_dict_order = 1, smiles=smiles)
+        GcnnBase.__init__(
+            self, 
+            kekule_smiles, 
+            column_dict_key='Predicted Class (Probability)', 
+            columns_dict_order = 1, 
+            smiles=smiles
+        )
 
         self._columns_dict['Prediction'] = {
             'order': 2,
@@ -66,12 +67,14 @@ class RLMPredictior(GcnnBase):
             print(f'RLM: {end - start} seconds to predict {len(self.predictions_df.index)} molecules')
 
             self.predictions_df['Prediction'] = pd.Series(
-                pd.Series(np.where(gcnn_predictions>=0.5, 'unstable', 'stable'))
+                pd.Series(
+                    np.where(
+                        gcnn_predictions>=0.5, 
+                        'unstable', 
+                        'stable'
+                    )
+                )
             )
-
-            # if not intrprt_df.empty:
-            #     intrprt_df['final_smiles'] = np.where(intrprt_df['rationale_score']>0, intrprt_df['smiles'].astype(str)+'_'+intrprt_df['rationale_smiles'].astype(str), intrprt_df['smiles'].astype(str))
-            #     self.predictions_df['mol'] = pd.Series(intrprt_df['final_smiles'].tolist())
 
         return self.predictions_df
 
