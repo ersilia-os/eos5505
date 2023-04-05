@@ -1,6 +1,6 @@
 # Rat liver microsomal stability
 
-Hepatic metabolic stability is key to ensure the drug attains the desired concentration in the body. The Rat Liver Microsomal (RLM) stability is a good approximation of a compound’s stability in the human body, and NCATS has collected a proprietary dataset of 20216 compounds with its associated RLM (in vitro half-life; unstable < 30 min, stable >30 min) and used it to train a classifier based on an ensemble of several ML approaches (random forest, deep neural networks, graph convolutional neural networks and recurrent neural networks)
+Hepatic metabolic stability is key to ensure the drug attains the desired concentration in the body. The Rat Liver Microsomal (RLM) stability is a good approximation of a compound’s stability in the human body, and NCATS has collected a proprietary dataset of 20216 compounds with its associated RLM (in vitro half-life; unstable ≤30 min, stable >30 min) and used it to train a classifier based on an ensemble of several ML approaches (random forest, deep neural networks, graph convolutional neural networks and recurrent neural networks)
 
 ## Identifiers
 
@@ -15,7 +15,7 @@ Hepatic metabolic stability is key to ensure the drug attains the desired concen
 * Output: `Probability`
 * Output Type: `Float`
 * Output Shape: `Single`
-* Interpretation: Probability of a compound being stable in RLM (half-life >30min)
+* Interpretation: Probability of a compound being unstable in RLM assay (half-life ≤ 30min)
 
 ## References
 
