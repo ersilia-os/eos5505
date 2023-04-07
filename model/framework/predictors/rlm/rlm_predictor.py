@@ -60,23 +60,14 @@ class RLMPredictior(GcnnBase):
         """
 
         if len(self.kekule_smiles) > 0:
-
             start = time.time()
             gcnn_predictions, gcnn_labels = self.gcnn_predict(rlm_gcnn_model, rlm_gcnn_scaler)
             end = time.time()
             print(f'RLM: {end - start} seconds to predict {len(self.predictions_df.index)} molecules')
-
-            self.predictions_df['Prediction'] = pd.Series(
-                pd.Series(
-                    np.where(
-                        gcnn_predictions>=0.5, 
-                        'unstable', 
-                        'stable'
-                    )
-                )
-            )
-
-        return self.predictions_df
+            self.predictions_df['rlm_proba1'] = pd.Series(np.around(gcnn_predictions, 3))
+            proba_df = pd.DataFrame()
+            proba_df['rlm_proba1'] = pd.Series(np.around(gcnn_predictions, 3))
+        return proba_df
 
     def get_model_version(self) -> str:
         return self.model_version
