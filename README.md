@@ -26,7 +26,7 @@ Hepatic metabolic stability is key to ensure the drug attains the desired concen
 ## Ersilia model URLs
 * [GitHub](https://github.com/ersilia-os/eos5505)
 * [AWS S3](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5505.zip)
-* [DockerHub](https://hub.docker.com/r/ersiliaos/eos5505) (AMD64)
+* [DockerHub](https://hub.docker.com/r/ersiliaos/eos5505) (AMD64, ARM64)
 
 ## Citation
 
