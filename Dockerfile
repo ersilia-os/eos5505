@@ -9,7 +9,7 @@ RUN pip install tqdm==4.65
 RUN pip install typing-extensions==4.5.0
 RUN pip install typed-argument-parser==1.8.0
 RUN pip install tensorboardX==2.6
-RUN pip install scikit-learn==0.22
+RUN pip install scikit-learn==1.0.1
 RUN pip install hyperopt==0.2.7
 
 WORKDIR /repo
