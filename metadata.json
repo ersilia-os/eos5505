@@ -27,7 +27,7 @@
         "Metabolism",
         "Half-life"
     ],
-    "Publication": "https://www.sciencedirect.com/science/article/abs/pii/S0968089619303475?via%3Dihub",
+    "Publication": "https://slas-discovery.org/article/S2472-5552(22)06765-X/fulltext",
     "Source Code": "https://github.com/ncats/ncats-adme",
     "License": "None",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5505.zip",

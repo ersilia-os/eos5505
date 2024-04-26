@@ -19,7 +19,7 @@ Hepatic metabolic stability is key to ensure the drug attains the desired concen
 
 ## References
 
-* [Publication](https://www.sciencedirect.com/science/article/abs/pii/S0968089619303475?via%3Dihub)
+* [Publication](https://slas-discovery.org/article/S2472-5552(22)06765-X/fulltext)
 * [Source Code](https://github.com/ncats/ncats-adme)
 * Ersilia contributor: [pauline-banye](https://github.com/pauline-banye)
 
@@ -30,7 +30,7 @@ Hepatic metabolic stability is key to ensure the drug attains the desired concen
 
 ## Citation
 
-If you use this model, please cite the [original authors](https://www.sciencedirect.com/science/article/abs/pii/S0968089619303475?via%3Dihub) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).
+If you use this model, please cite the [original authors](https://slas-discovery.org/article/S2472-5552(22)06765-X/fulltext) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).
 
 ## License
 
