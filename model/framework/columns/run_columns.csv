@@ -1,0 +1,2 @@
+name,type,direction,description
+rlm_proba1,float,high,probability of the compoung being metabolised by rat liver microsomes (half-life < 30min)
