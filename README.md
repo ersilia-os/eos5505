@@ -2,7 +2,7 @@
 
 Hepatic metabolic stability is key to ensure the drug attains the desired concentration in the body. The Rat Liver Microsomal (RLM) stability is a good approximation of a compound’s stability in the human body, and NCATS has collected a proprietary dataset of 20216 compounds with its associated RLM (in vitro half-life; unstable ≤30 min, stable >30 min) and used it to train a classifier based on an ensemble of several ML approaches (random forest, deep neural networks, graph convolutional neural networks and recurrent neural networks)
 
-This model was incorporated on 2023-01-12.
+This model was incorporated on 2023-01-02.
 
 ## Information
 ### Identifiers
