@@ -28,7 +28,7 @@ This model was incorporated on 2023-01-12.
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
 |------|------|-----------|-------------|
-| rlm_proba1 | float | high | probability of the compoung being metabolised by rat liver microsomes (half-life < 30min) |
+| rlm_proba1 | float | high | Probability of the compound being metabolised by rat liver microsomes at half-life below 30 min |
 
 
 ### Source and Deployment
