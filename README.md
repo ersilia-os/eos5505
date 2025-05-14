@@ -41,7 +41,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `86`
 - **Environment Size (Mb):** `2447`
+- **Image Size (Mb):** `2510.36`
 
+**Computational Performance (seconds):**
+- 10 inputs: `33.56`
+- 100 inputs: `24`
+- 10000 inputs: `459.68`
 
 ### References
 - **Source Code**: [https://github.com/ncats/ncats-adme](https://github.com/ncats/ncats-adme)
