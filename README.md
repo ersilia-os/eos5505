@@ -4,6 +4,7 @@ Hepatic metabolic stability is key to ensure the drug attains the desired concen
 
 This model was incorporated on 2023-01-02.
 
+
 ## Information
 ### Identifiers
 - **Ersilia Identifier:** `eos5505`
@@ -13,7 +14,7 @@ This model was incorporated on 2023-01-02.
 - **Task:** `Annotation`
 - **Subtask:** `Activity prediction`
 - **Biomedical Area:** `ADMET`
-- **Target Organism:** `Rat norvegicus`
+- **Target Organism:** `Rattus norvegicus`
 - **Tags:** `Microsomal stability`, `Rat`, `ADME`, `Metabolism`, `Half-life`
 
 ### Input
