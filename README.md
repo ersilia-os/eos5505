@@ -50,7 +50,7 @@ Below are the **Output Columns** of the model:
 
 ### References
 - **Source Code**: [https://github.com/ncats/ncats-adme](https://github.com/ncats/ncats-adme)
-- **Publication**: [https://slas-discovery.org/article/S2472-5552(22)06765-X/fulltext](https://slas-discovery.org/article/S2472-5552(22)06765-X/fulltext)
+- **Publication**: [https://doi.org/10.1177/24725552211017520](https://doi.org/10.1177/24725552211017520)
 - **Publication Type:** `Peer reviewed`
 - **Publication Year:** `2021`
 - **Ersilia Contributor:** [pauline-banye](https://github.com/pauline-banye)
