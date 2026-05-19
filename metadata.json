@@ -23,7 +23,6 @@
     "Interpretation": "Probability of a compound being unstable in RLM assay (half-life \u2264 30min)",
     "Tag": [
         "Microsomal stability",
-        "Rat",
         "ADME",
         "Metabolism",
         "Half-life"
