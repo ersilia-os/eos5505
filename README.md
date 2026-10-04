@@ -1,6 +1,6 @@
 # Rat liver microsomal stability
 
-Hepatic metabolic stability is key to ensure the drug attains the desired concentration in the body. The Rat Liver Microsomal (RLM) stability is a good approximation of a compound’s stability in the human body, and NCATS has collected a proprietary dataset of 20216 compounds with its associated RLM (in vitro half-life; unstable ≤30 min, stable >30 min) and used it to train a classifier based on an ensemble of several ML approaches (random forest, deep neural networks, graph convolutional neural networks and recurrent neural networks)
+Predicts whether a compound will be rapidly metabolised by rat liver microsomes, an early species check on whether exposure can be sustained long enough for efficacy studies. A half-life at or below 30 minutes marks a compound as unstable. Siramshetty and colleagues at NCATS built the underlying QSAR models on in-house ADME screening data and, unusually, validated them against marketed drugs rather than only a held-out split. Rat microsomal turnover is an imperfect surrogate for human metabolism.
 
 This model was incorporated on 2023-01-02.Last packaged on 2025-10-15.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2023-01-02.Last packaged on 2025-10-15.
 ### Output
 - **Output Dimension:** `1`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of a compound being unstable in RLM assay (half-life ≤ 30min)
+- **Interpretation:** Probability that a compound is unstable in rat liver microsomes, with instability set at a half-life under 30 minutes.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
