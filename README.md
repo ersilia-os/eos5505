@@ -1,6 +1,6 @@
 # Rat liver microsomal stability
 
-Predicts whether a compound will be rapidly metabolised by rat liver microsomes, an early species check on whether exposure can be sustained long enough for efficacy studies. A half-life at or below 30 minutes marks a compound as unstable. Siramshetty and colleagues at NCATS built the underlying QSAR models on in-house ADME screening data and, unusually, validated them against marketed drugs rather than only a held-out split. Rat microsomal turnover is an imperfect surrogate for human metabolism.
+Flags compounds likely to be cleared quickly by rat liver microsomes, an early species read on whether exposure can be held long enough for efficacy work, with a half-life under 30 minutes counting as unstable. Siramshetty and colleagues at NCATS trained a graph convolutional network on roughly 25,000 in-house Tier I measurements and then, unusually, tested it on marketed drugs rather than only a held-out split, where balanced accuracy dropped to 0.71. Rat microsomal turnover remains an imperfect surrogate for human metabolism.
 
 This model was incorporated on 2023-01-02.Last packaged on 2025-10-15.
 
