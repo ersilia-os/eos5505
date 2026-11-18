@@ -2,7 +2,8 @@
 
 Flags compounds likely to be cleared quickly by rat liver microsomes, an early species read on whether exposure can be held long enough for efficacy work, with a half-life under 30 minutes counting as unstable. Siramshetty and colleagues at NCATS trained a graph convolutional network on roughly 25,000 in-house Tier I measurements and then, unusually, tested it on marketed drugs rather than only a held-out split, where balanced accuracy dropped to 0.71. Rat microsomal turnover remains an imperfect surrogate for human metabolism.
 
-This model was incorporated on 2023-01-02.Last packaged on 2025-10-15.
+This model was incorporated on 2023-01-02.
+Last packaged on 2025-10-15.
 
 ## Information
 ### Identifiers
@@ -14,7 +15,7 @@ This model was incorporated on 2023-01-02.Last packaged on 2025-10-15.
 - **Subtask:** `Activity prediction`
 - **Biomedical Area:** `ADMET`
 - **Target Organism:** `Rattus norvegicus`
-- **Tags:** `Microsomal stability`, `Rat`, `ADME`, `Metabolism`, `Half-life`
+- **Tags:** `Microsomal stability`, `ADME`, `Metabolism`, `Half-life`
 
 ### Input
 - **Input:** `Compound`
@@ -37,6 +38,7 @@ Below are the **Output Columns** of the model:
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos5505](https://hub.docker.com/r/ersiliaos/eos5505)
 - **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5505.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5505.zip)
+- **Apptainer**: [https://models-sif.s3.eu-north-1.amazonaws.com/eos5505_v1.sif](https://models-sif.s3.eu-north-1.amazonaws.com/eos5505_v1.sif)
 
 ### Resource Consumption
 - **Model Size (Mb):** `86`
